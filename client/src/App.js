@@ -1,24 +1,52 @@
-import logo from './logo.svg';
 import './App.css';
+
+import React from 'react'
+
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+
+import routes from './routes'
+
+// elements
+import { AccomodationPage } from './pages/accomodations/accomodations_page'
+import { BudgetPage } from './pages/budget/budget_page'
+import { GeneralPage } from './pages/general/general_page'
+import { LandingPage } from './pages/landing/landing_page'
+import { LoadingPage } from './pages/loading/loading_page'
+import { PlanesPage } from './pages/planes/planes_page'
+import { SettingsPage } from './pages/settings/settings_page'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Suspense fallback={<LoadingPage />}>
+      <Router>
+        <Routes >
+          <Route
+            path={routes.landing()}
+            element={<LandingPage />}
+          />
+          <Route
+            path={routes.general()}
+            element={<GeneralPage />}
+          />
+          <Route
+            path={routes.planes()}
+            element={<PlanesPage />}
+          />
+          <Route
+            path={routes.accomodations()}
+            element={<AccomodationPage />}
+          />
+          <Route
+            path={routes.budget()}
+            element={<BudgetPage />}
+          />
+          <Route
+            path={routes.settings()}
+            element={<SettingsPage />}
+          />
+        </Routes >
+      </Router>
+    </React.Suspense>
   );
 }
 

@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
 import routes from './routes'
 
-// elements
+// components
 import { AccomodationPage } from './pages/accomodations/accomodations_page'
 import { BudgetPage } from './pages/budget/budget_page'
 import { GeneralPage } from './pages/general/general_page'
